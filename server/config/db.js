@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 async function connectDb() {
     try{
-        let conn = await mongoose.connect("mongodb://127.0.0.1:27017/todos");
+        let conn = await mongoose.connect(process.env.MONGODB_ATLAS);
         console.log(`Database Connected ${conn.connection.host}`);
     }catch(err){
         console.log(`------ERROR-----`)
