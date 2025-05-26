@@ -37,8 +37,10 @@ module.exports.updateTaskFields = async (req, res) => {
     try {
         let { id } = req.params;
         let updatedTask = await Task.findByIdAndUpdate(id, req.body, { new: true });
-        console.log(updatedTask)
-        return res.json(updatedTask);
+        return res.status(200).json({
+            success: true,
+            message: "Task Updated Successfully"
+        });
     } catch (err) {
         console.error("Task Updation Error:", err);
         res.status(500).json({
