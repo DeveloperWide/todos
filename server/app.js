@@ -12,8 +12,8 @@ let taskRoutes = require("./routes/taskRoute");
 
 
 const corsOptions = {
-  origin: 'https://todos-qci4.onrender.com',
-  optionsSuccessStatus: 200
+  // origin: 'https://todos-qci4.onrender.com',
+  origin: "*"
 }
 
 // middlewares
