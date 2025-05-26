@@ -9,8 +9,9 @@ const Task = () => {
    
 
     useEffect(() => {
-        axios.get(axios.get(`${import.meta.env.VITE_API_URL}/tasks`)).then((res) => {
+        axios.get(axios.get(`${import.meta.env.VITE_API_URL}/tasks/`)).then((res) => {
             let tasks = res.data.tasks;
+            console.log(res)
             setData(tasks);
         }).catch(er => {
             console.log(er)

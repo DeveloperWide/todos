@@ -42,8 +42,9 @@ const AddTask = () => {
   let onSubmitHandler = (event) => {
     event.preventDefault();
 
-    axios.post(`${import.meta.env.VITE_API_URL}/tasks`, form)
+    axios.post(`${import.meta.env.VITE_API_URL}/tasks/`, form)
       .then((res) => {
+        console.log(`Responce when posting the task`,res)
         setMsg(res.data.message);
         setError(null);
         setForm({
@@ -59,6 +60,7 @@ const AddTask = () => {
       })
       .catch((err) => {
         setMsg(null);
+        console.log(`Error while posting the task`,err)
         setError(err.response?.data?.message || "Something went wrong!");
         handleClick(); // 👈 Trigger snackbar
       });
