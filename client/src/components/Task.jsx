@@ -9,8 +9,10 @@ const Task = () => {
    
 
     useEffect(() => {
-        console.log(`${import.meta.env.VITE_API_URL}`)
-        axios.get(axios.get(`${import.meta.env.VITE_API_URL}/tasks/`)).then((res) => {
+        console.log(`${import.meta.env.VITE_API_URL}`);
+        console.log(`${import.meta.env.VITE_API_URL}/tasks`);
+        console.log(axios.get(`${import.meta.env.VITE_API_URL}/tasks`));
+        axios.get(`${import.meta.env.VITE_API_URL}/tasks/`).then((res) => {
             let tasks = res.data.tasks;
             console.log(`Data from axios.get to Fetch tasks`,res)
             setData(tasks);
