@@ -11,7 +11,7 @@ const Task = () => {
     useEffect(() => {
         axios.get(axios.get(`${import.meta.env.VITE_API_URL}/tasks/`)).then((res) => {
             let tasks = res.data.tasks;
-            console.log(res)
+            console.log(`Data from axios.get to Fetch tasks`,res)
             setData(tasks);
         }).catch(er => {
             console.log(er)
@@ -35,7 +35,7 @@ const Task = () => {
     }
 
     let deleteTask = (e, taskId) => {
-        axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`)
+        axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${taskId}/`)
             .then(() => {
                 // Remove deleted task from local state
                 setData(prev => prev.filter(task => task._id !== taskId));
