@@ -42,7 +42,7 @@ const AddTask = () => {
   let onSubmitHandler = (event) => {
     event.preventDefault();
 
-    axios.post('/api/tasks/', form)
+    axios.post(`${import.meta.env.VITE_API_URL}/tasks`, form)
       .then((res) => {
         setMsg(res.data.message);
         setError(null);

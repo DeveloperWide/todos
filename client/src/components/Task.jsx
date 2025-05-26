@@ -9,7 +9,7 @@ const Task = () => {
    
 
     useEffect(() => {
-        axios.get("/api/tasks").then((res) => {
+        axios.get(axios.get(`${import.meta.env.VITE_API_URL}/tasks`)).then((res) => {
             let tasks = res.data.tasks;
             setData(tasks);
         }).catch(er => {
@@ -23,7 +23,7 @@ const Task = () => {
             [e.target.name]: e.target.value
         }
 
-        axios.patch(`/api/tasks/${taskId}`, updateObject).then((res) => {
+        axios.patch(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`, updateObject).then((res) => {
             // Option 1: Re-fetch all tasks (simple, safe)
             axios.get("/api/tasks").then((res) => {
                 return setData(res.data.tasks)
@@ -34,7 +34,7 @@ const Task = () => {
     }
 
     let deleteTask = (e, taskId) => {
-        axios.delete(`/api/tasks/${taskId}`)
+        axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`)
             .then(() => {
                 // Remove deleted task from local state
                 setData(prev => prev.filter(task => task._id !== taskId));
