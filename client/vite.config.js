@@ -7,7 +7,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      "/api" : "https://todos-xskt.onrender.com"
+      target : "https://todos-xskt.onrender.com/",
+      changeOrigin: true,
+      secure: true
     }
   }
 })
