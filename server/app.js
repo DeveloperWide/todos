@@ -12,7 +12,7 @@ let taskRoutes = require("./routes/taskRoute");
 
 
 const corsOptions = {
-  origin: 'http://localhost:5173/',
+  origin: 'https://todos-qci4.onrender.com',
   optionsSuccessStatus: 200
 }
 
