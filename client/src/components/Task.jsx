@@ -30,7 +30,7 @@ const Task = () => {
         axios.patch(`${import.meta.env.VITE_API_URL}/tasks/${taskId}`, updateObject).then((res) => {
             // Option 1: Re-fetch all tasks (simple, safe)
 
-           axios.get("/api/tasks").then((res) => {
+           axios.get(`${import.meta.env.VITE_API_URL}/tasks`).then((res) => {
                 setData(res.data.tasks);
             }).catch((err) => {
                 console.log(err.data.message)
